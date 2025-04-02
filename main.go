@@ -50,11 +50,29 @@ func main() {
 	fmt.Printf("merge sort result 2: %v\n", msr2)
 
 	// linked list ***********************************************
-	head := Node{data: 10}
-	add_node(&head, 11)
-	add_node(&head, 12)
-	add_node(&head, 13)
-	add_node(&head, 14)
-	add_node(&head, 15)
-	print_list(&head)
+	even_head := Node{data: 10}
+	add_node(&even_head, 12)
+	add_node(&even_head, 14)
+	add_node(&even_head, 16)
+	add_node(&even_head, 18)
+	print_list(&even_head)
+	odd_head := Node{data: 11}
+	add_node(&odd_head, 13)
+	add_node(&odd_head, 15)
+	add_node(&odd_head, 17)
+	add_node(&odd_head, 19)
+	print_list(&odd_head)
+	// r_list := reverse(&even_head)
+	m_list := merge_lists(&even_head, &odd_head)
+	print_list(m_list)
+
+	// fmt.Println("\nUsing new_linked_list.go functions: \n")
+	// even_h2 := Node2{data: 10}
+	// Add_node(&even_h2, 12)
+	// Add_node(&even_h2, 14)
+	// Add_node(&even_h2, 16)
+	// Add_node(&even_h2, 18)
+	// //Print_list(&even_h2)
+	// r_list2 := Reverse(&even_h2)
+	// Print_list(r_list2)
 }
