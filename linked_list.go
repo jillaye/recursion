@@ -57,12 +57,13 @@ func r_reverse(node *Node) *Node {
 		return node
 	}
 	rest := r_reverse(node.next)
-	// deal with current node to "rest" link
+	// reverse current node's link
 	(node.next).next = node
 	node.next = nil
 	return rest
 }
 
+// Non-recursive merge
 func merge_lists(a *Node, b *Node) *Node {
 	if a == nil {
 		return b
@@ -99,4 +100,28 @@ func merge_lists(a *Node, b *Node) *Node {
 		tail.next = b
 	}
 	return head
+}
+
+// Recursive merge
+func r_merge_lists(a *Node, b *Node) *Node {
+	if a == nil {
+		return b
+	}
+	if b == nil {
+		return a
+	}
+	// var ml *Node
+	if a.data <= b.data {
+		// ml = a
+		// a = a.next
+		a.next = r_merge_lists(a.next, b)
+		return a
+	} else {
+		// ml = b
+		// b = b.next
+		b.next = r_merge_lists(a, b.next)
+		return b
+	}
+	// ml.next = r_merge_lists(a, b)
+	// return r_merge_lists(a, b)
 }
