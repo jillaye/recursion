@@ -56,9 +56,11 @@ func r_reverse(node *Node) *Node {
 	if node == nil || node.next == nil {
 		return node
 	}
-	head := r_reverse(node.next)
-	head.next = node
-	return head
+	rest := r_reverse(node.next)
+	// deal with current node to "rest" link
+	(node.next).next = node
+	node.next = nil
+	return rest
 }
 
 func merge_lists(a *Node, b *Node) *Node {
