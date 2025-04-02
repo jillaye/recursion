@@ -34,11 +34,6 @@ func print_list(head *Node) {
 	fmt.Printf("%d\n", current.data)
 }
 
-func swap_nodes(a **Node, b **Node) {
-	(*a).next = *b
-	(*b).next = *a
-}
-
 // Non-recursive reverse
 func reverse(head *Node) *Node {
 	if head == nil || head.next == nil {
@@ -54,6 +49,16 @@ func reverse(head *Node) *Node {
 		current = temp
 	}
 	return prev
+}
+
+// Recursive reverse
+func r_reverse(node *Node) *Node {
+	if node == nil || node.next == nil {
+		return node
+	}
+	head := r_reverse(node.next)
+	head.next = node
+	return head
 }
 
 func merge_lists(a *Node, b *Node) *Node {
