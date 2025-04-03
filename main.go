@@ -35,7 +35,7 @@ func main() {
 	fmt.Printf("Decimal: %d = Binary: %s\n", decimal, rConvert(decimal))
 	fmt.Printf("Decimal: %d = Sum: %d\n\n", decimal, rSumAll(decimal))
 
-	fmt.Printf("Sum of binary tree = %d\n\n", sumTree(&root))
+	fmt.Printf("Sum of binary tree = %d\n\n", SumTree(&root))
 
 	n := 10
 	fmt.Printf("fibo(%d) = %v\n", n, fibonacci(n))
@@ -71,4 +71,16 @@ func main() {
 	fmt.Println("Recursive merge:")
 	m_list := r_merge_lists(&even_head, &odd_head)
 	print_list(m_list)
+
+	// binary search tree ***********************************************
+	fmt.Print("\nBinary Search tree\n")
+	root := TreeNode{data: 5}
+	AddTreeNode(&root, 3)
+	AddTreeNode(&root, 3)
+	AddTreeNode(&root, 20)
+	AddTreeNode(&root, 19)
+	AddTreeNode(&root, 41)
+	AddTreeNode(&root, 2)
+	AddTreeNode(&root, 40)
+	fmt.Printf("Sum for 5,3,2, 20, 19, 40, 41 = %d", SumTree(&root))
 }
