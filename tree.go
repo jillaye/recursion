@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Tree Nodes
 type TreeNode struct {
 	data  int
@@ -27,5 +29,17 @@ func SumTree(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
+	fmt.Printf("Node: %d\n", root.data)
 	return root.data + SumTree(root.left) + SumTree(root.right)
+}
+
+func PrintLeafNodes(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	if root.left == nil && root.right == nil {
+		fmt.Printf("\nLeaf Node: %d", root.data)
+	}
+	PrintLeafNodes(root.left)
+	PrintLeafNodes(root.right)
 }
